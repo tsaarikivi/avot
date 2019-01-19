@@ -1,0 +1,14 @@
+{
+  "variableQuestions": [
+    {
+      "name": "SERVICE_NAME",
+      "message": "Service name:"
+    }
+  ],
+  "preCommands": ["echo 'SERVICE_NAME'"],
+  "paths": {
+    "fromDirectory": "helpers",
+    "toDirectory": "to/deeper/place"
+  },
+  "postCommands": ["echo 'post SERVICE_NAME'"]
+}

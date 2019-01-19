@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/tsaarikivi/avot/issues"
   },
-  "homepage": "https://github.com/tsaarikivi/avot#readme"
+  "homepage": "https://github.com/tsaarikivi/avot#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "inquirer": "^6.2.1"
+  }
 }
