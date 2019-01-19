@@ -1,0 +1,29 @@
+{
+  // 1. first ask questions to replace variables in template files
+  "questions": [
+    {
+      "variable": "who",
+      "question": "Who are you?"
+    },
+    {
+      "variable": "age",
+      "question": "How old are you?"
+    }
+  ],
+
+  // 2. before anything run pre scripts with command line
+  "preScripts": ["create github repo", "create cloud build and watch repo"],
+
+  // 3. run scaffold scripts
+  "tepmlates": {
+    "path": "./microup"
+  },
+
+  // 4. after scaffold run post scripts with command line
+  "postScripts": [
+    "git add .",
+    "git commit -m 'initial commit'",
+    "set git origin",
+    "git push origin master"
+  ]
+}
