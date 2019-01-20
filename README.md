@@ -63,15 +63,15 @@ Avot has served it's purpose when it is as easy as "avot service hello-world", t
 
 #### variableQuestions
 
-- The value of property `"name"` will be replaced everywhere in your scaffold files and commands. The value of property `"message"` will be displayed as the question in the cli. `"SERVICE_NAME"` is reserved for file and folder naming purposes.
+The value of property `"name"` will be replaced everywhere in your scaffold files and commands. The value of property `"message"` will be displayed as the question in the cli. `"SERVICE_NAME"` is reserved for file and folder naming purposes.
 
 #### preCommands & postCommands
 
-- You can run any commands pre and post scaffolding your template files. The property `"command"` is the command to be executed. The property `"args"` are the arguments passed to the command. You can add flags and anything else to the args property.
+You can run any commands pre and post scaffolding your template files. The property `"command"` is the command to be executed. The property `"args"` are the arguments passed to the command. You can add flags and anything else to the args property.
 
 #### paths
 
-- The property `"fromDirectory"` should point to your service template directory. The property `"toDirectory"` should point to your services root directory.
+The property `"fromDirectory"` should point to your service template directory. The property `"toDirectory"` should point to your services root directory.
 
 ## Done
 
