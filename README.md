@@ -32,6 +32,8 @@ Avot has served it's purpose when it is as easy as "avot service hello-world", t
 
 ### Configuration File
 
+[An example avot.json](./example/config/avot.json)
+
 ```json
 {
   "variableQuestions": [
