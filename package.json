@@ -1,6 +1,6 @@
 {
   "name": "@avot/avot",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Avot automates the creation of microservices.",
   "main": "index.js",
   "repository": {
