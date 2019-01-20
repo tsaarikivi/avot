@@ -1,14 +1,18 @@
+const fs = require('fs');
+const chalk = require('chalk');
+const path = require('path');
+
 const asker = require('../helpers/asker');
-const file = require('../helpers/file');
 const runner = require('../helpers/runner');
 const scaffold = require('../helpers/scaffold');
-const chalk = require('chalk');
 
 module.exports = async (command, options) => {
-  const configFilePath = options && options.path;
-
   // get configuration file
-  const configuration = JSON.parse(file.getFile(configFilePath));
+  const configFilePath = (options && options.path) || 'avot.json';
+  const base = process.cwd();
+  const fullConfigFilePath = path.join(base, configFilePath);
+  const configData = fs.readFileSync(fullConfigFilePath, 'utf8');
+  const configuration = JSON.parse(configData);
 
   // Ask questions for variables
   const answers = await asker(configuration.variableQuestions);

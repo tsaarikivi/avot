@@ -1,23 +1,34 @@
 const fs = require('fs');
-const file = require('./file');
+const path = require('path');
 const util = require('./util');
 
 module.exports = function(paths, variables) {
-  const filePaths = file.getDirectoryFilePaths(paths.fromDirectory);
-
-  filePaths.forEach(filePath => {
-    const data = file.getFile(filePath);
-
-    const text = util.findAndReplace(data, variables);
-
-    copyToPath(text, filePath, paths.toDirectory);
-  });
-};
-
-function copyToPath(text, filePath, toDirectory) {
   const base = process.cwd();
 
-  const fullPath = `${base}/${toDirectory}/${filePath}`;
+  const fromPath = path.join(base, paths.fromDirectory);
+  const toPath = path.join(base, paths.toDirectory, variables.SERVICE_NAME);
 
-  fs.writeFileSync(fullPath, text);
+  copyRecursiveSync(fromPath, toPath, variables);
+};
+
+function copyRecursiveSync(src, dest, variables) {
+  const exists = fs.existsSync(src);
+  const stats = exists && fs.statSync(src);
+  const isDirectory = exists && stats.isDirectory();
+
+  if (exists && isDirectory) {
+    fs.mkdirSync(dest);
+
+    fs.readdirSync(src).forEach(childItemName => {
+      const fromFilePath = path.join(src, childItemName);
+      const toFilePath = path.join(dest, childItemName);
+
+      copyRecursiveSync(fromFilePath, toFilePath, variables);
+    });
+  } else {
+    const data = fs.readFileSync(src, 'utf8');
+    const text = util.findAndReplace(data, variables);
+
+    fs.writeFileSync(dest, text);
+  }
 }

@@ -8,7 +8,7 @@
   "preCommands": ["echo 'SERVICE_NAME'"],
   "paths": {
     "fromDirectory": "helpers",
-    "toDirectory": "to/deeper/place"
+    "toDirectory": "services"
   },
   "postCommands": ["echo 'post SERVICE_NAME'"]
 }
