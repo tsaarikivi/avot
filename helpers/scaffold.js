@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const util = require('./util');
 
-module.exports = function(paths, variables) {
+module.exports = (paths, variables) => {
   const base = process.cwd();
 
   const fromPath = path.join(base, paths.fromDirectory);

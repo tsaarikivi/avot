@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 
-module.exports = function(questions) {
+module.exports = questions => {
   if (!questions || !questions.length) {
     return undefined;
   }

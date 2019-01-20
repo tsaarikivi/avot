@@ -5,10 +5,20 @@
       "message": "Service name:"
     }
   ],
-  "preCommands": ["echo 'SERVICE_NAME'"],
+  "preCommands": [
+    {
+      "command": "echo",
+      "args": ["'SERVICE_NAME'"]
+    }
+  ],
   "paths": {
     "fromDirectory": "helpers",
     "toDirectory": "services"
   },
-  "postCommands": ["echo 'post SERVICE_NAME'"]
+  "postCommands": [
+    {
+      "command": "echo",
+      "args": ["'hello world'"]
+    }
+  ]
 }
