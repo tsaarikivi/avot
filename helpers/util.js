@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   findAndReplace: (text, variables) => {
     if (!variables) {

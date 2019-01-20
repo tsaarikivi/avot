@@ -1,35 +1,26 @@
-'use strict';
-
-const chalk = require('chalk');
+const asker = require('../helpers/asker');
 const file = require('../helpers/file');
-const inquirer = require('../helpers/inquirer');
 const runner = require('../helpers/runner');
-const template = require('../helpers/template');
+const scaffold = require('../helpers/scaffold');
+const chalk = require('chalk');
 
-module.exports = {
-  run: async (command, options) => {
-    try {
-      const configFilePath = options && options.path;
+module.exports = async (command, options) => {
+  const configFilePath = options && options.path;
 
-      // get configuration file
-      const configuration = JSON.parse(file.getFile(configFilePath));
+  // get configuration file
+  const configuration = JSON.parse(file.getFile(configFilePath));
 
-      // Ask questions for variables
-      const answers = await inquirer.ask(configuration.variableQuestions);
+  // Ask questions for variables
+  const answers = await asker(configuration.variableQuestions);
 
-      // Run pre scripts
-      await runner.run(configuration.preCommands, answers);
+  // Run pre scripts
+  await runner(configuration.preCommands, answers);
 
-      // Copy files and replace variables
-      await template.scaffold(configuration.paths, answers);
+  // Scaffold files
+  await scaffold(configuration.paths, answers);
 
-      // Run post scripts
-      await runner.run(configuration.postCommands, answers);
+  // Run post scripts
+  await runner(configuration.postCommands, answers);
 
-      console.log(chalk.green('Service created!'));
-    } catch (err) {
-      console.error(err);
-      process.exit();
-    }
-  }
+  console.log(chalk.green('Service created!'));
 };
