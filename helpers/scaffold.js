@@ -2,11 +2,14 @@ const fs = require('fs');
 const path = require('path');
 const util = require('./util');
 
-module.exports = (paths, variables) => {
-  const base = process.cwd();
-
-  const fromPath = path.join(base, paths.fromDirectory);
-  const toPath = path.join(base, paths.toDirectory, variables.SERVICE_NAME);
+module.exports = ({ paths, __configFileDir }, variables) => {
+  // get paths relative to config file
+  const fromPath = path.join(__configFileDir, paths.fromDirectory);
+  const toPath = path.join(
+    __configFileDir,
+    paths.toDirectory,
+    variables.SERVICE_NAME
+  );
 
   copyRecursiveSync(fromPath, toPath, variables);
 };

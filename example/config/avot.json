@@ -12,8 +12,8 @@
     }
   ],
   "paths": {
-    "fromDirectory": "helpers",
-    "toDirectory": "services"
+    "fromDirectory": "../files",
+    "toDirectory": "../services"
   },
   "postCommands": [
     {

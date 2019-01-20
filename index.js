@@ -12,8 +12,8 @@ program
     '-p, --path [optional]',
     'Path to avot config file. Defaults to avot.json.'
   )
-  .action(function() {
-    newCommand();
+  .action(command => {
+    newCommand(command);
   });
 
 program.parse(process.argv);
