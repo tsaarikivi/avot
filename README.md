@@ -20,11 +20,12 @@ Avot has served it's purpose when it is as easy as "avot new", to create a micro
 
 `npm i -g @avot/avot`
 
-### Overview
+### Get Started
 
-- To your project structure create an avot configuration file
-- To your project structure create a template directory for avot to scaffold a new service
-- Run `avot new` if you have avot.json in the root of your project or `avot new --path path/to/avot.json`
+1. To your project structure create an avot configuration file
+2. To your project structure create a template directory for avot to scaffold a new service from
+3. To your project structure create a directory for avot to scaffolde the new service to `eg. backend/services`
+4. Run `avot new` if you have avot.json in the root of your project or `avot new --path path/to/avot.json`
 
 ### Configuration File
 
