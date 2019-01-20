@@ -7,11 +7,7 @@ Avot automates the creation of microservices in your project. It's is fully cust
 - Scaffolds your template files by copying them to your preferred location and replacing variable words.
 - Running your post scripts. (eg. commit and push to git)
 
-## The Vision
-
-The goal is to create a microservice creator. It should be customizable and it should also have defaults for google cloud, aws and alike.
-
-Avot has served it's purpose when it is as easy as "avot service hello-world", to create a microservice with built in:
+Avot has served it's purpose when it is as easy as "avot new", to create a microservice with built in:
 
 - repository setup
 - build pipeline setup
@@ -82,7 +78,6 @@ The property `"fromDirectory"` should point to your service template directory. 
 ## Upcoming
 
 - `avot init` to create basic folder and files to current directory.
-- A working version with a default for google cloud + nodejs.
 
 ## Contribution
 
